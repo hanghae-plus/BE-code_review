@@ -1,64 +1,40 @@
 # BE-code_review
+
 항해 플러스 주최 웹개발 스터디의 우수 스터디원 한정 코드리뷰 문제입니다.
 
 <br/>
 <br/>
 
 <p align="middle" >
-  <img width="100px;" src="src/images/calculator_icon.png"/>
+  <img width="100px;" src="assets/ic_bank.png"/>
 </p>
-<h2 align="middle">level1 - 자바스크립트 계산기</h2>
-<p align="middle">자바스크립트 계산기로 익혀보는 Cypress</p>
-<p align="middle">
-  <img src="https://img.shields.io/badge/version-1.0.0-blue?style=flat-square" alt="template version"/>
-  <img src="https://img.shields.io/badge/language-html-red.svg?style=flat-square"/>
-  <img src="https://img.shields.io/badge/language-css-blue.svg?style=flat-square"/>
-  <img src="https://img.shields.io/badge/language-js-yellow.svg?style=flat-square"/>
-  <img src="https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square"/>
-</p>
+<h2 align="middle"></h2>
+<p align="middle">뱅킹과 할일 목록으로 살펴보는 도메인 설계</p>
 
-## 🔥 Projects!
-<p align="middle">
-  <img width="300" src="src/images/calculator_ui.png">
-</p>
+## ✅ 기능 요구사항
 
-<p align="middle">
-  <a href="https://next-step.github.io/js-calculator/">🖥️ 데모 링크</a>
-</p>
+### 🏧 뱅킹
 
+- [ ] 계좌에 현금을 입금할 수 있다. 현금의 금액만큼 계좌의 잔액이 증가한다.
+- [ ] 계좌에서 현금을 출금할 수 있다. 출금한 금액만큼 계좌의 잔액이 줄어든다.
+- [ ] 다른 계좌에 송금을 할 수 있다. 송금한 금액만큼 계좌의 잔액은 줄고, 수신계좌의 잔액이 늘어난다.
+- [ ] 계좌의 잔액보다 큰 금액을 송금하거나 인출할 수는 없다.
+- [ ] 계좌 잔액의 증감은 전부 거래내역으로 남아야한다.
+- [ ] 거래내역은 '계좌의 증감(+, -) 금액', '거래 일시'가 표시되며 거래 일시의 오름차순으로 표시된다.
+- [ ] 위 요구사항에 대한 테스트코드를 작성한다.
 
-## 🎯 기능 요구사항
+### 📋 Todo
 
-- [ ] 2개의 숫자에 대해 덧셈이 가능하다.
-- [ ] 2개의 숫자에 대해 뺄셈이 가능하다.
-- [ ] 2개의 숫자에 대해 곱셈이 가능하다.
-- [ ] 2개의 숫자에 대해 나눗셈이 가능하다.
-- [ ] AC(All Clear)버튼을 누르면 0으로 초기화 한다.
-- [ ] 숫자는 한번에 최대 3자리 수까지 입력 가능하다.
-- [ ] 계산 결과를 표현할 때 소수점 이하는 버림한다.
+- [ ] 할일을 추가할 수 있다. 할일은 일에 대한 구체적인 '내역'만 입력하면 된다.
+- [ ] 등록한 할일을 전체 목록으로 한 번에 확인할 수 있다.
+- [ ] 개별적인 할일의 '달성여부'를 끄거나 킬 수 있다.
+- [ ] 할일의 상태가 '달성'으로 변경되면 달성시각을 확인할 수 있다.
+- [ ] 할일 목록의 우선순위는 '달성여부', '등록일시' 순이다.
+- [ ] 할일을 할일 목록의 리스트에서 삭제할 수 있다.
+- [ ] 위 요구사항에 대한 테스트코드를 작성한다.
 
-<br/>
+## 🔥 참고 사항
 
-## 📊 테스트 요구사항
-
-**기능 요구사항에 제시된 7개의 항목에 대해 테스트 케이스를 만든다.**
-
-<br/>
-
-## 📄 참고 사항
-* 숫자 입력은 **클릭**으로만 가능하다.
-
-<br/>
-
-## 👏 Contributing
-만약 미션 수행 중에 개선사항이 보인다면, 언제든 자유롭게 PR을 보내주세요. 
-
-<br/>
-
-## 🐞 Bug Report
-버그를 발견한다면, [Issues](https://github.com/next-step/js-calculator/issues) 에 등록 후 @eastjun에게 dm을 보내주세요.
-
-<br/>
-
-## 📝 License
-This project is [MIT](https://github.com/next-step/js-calculator/blob/master/LICENSE) licensed.
+- 백엔드 프레임워크를 제외 추가로 필요한 패키지는 따로 없습니다.
+- 도메인 및 인터페이스 설계에 대해 중점적으로 고민해주시면 됩니다.
+- 영속성을 담당하는 서비스는 편한 방식을 채택하시고, 클린 아키텍쳐를 최대한 준수하는 방향으로 사용해주시면 됩니다.
