@@ -1,4 +1,4 @@
-package code_review.project.todolist.presentation;
+package code_review.project.todolist.domain.dto.in;
 
 import lombok.Getter;
 

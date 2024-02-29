@@ -5,6 +5,7 @@ import static jakarta.persistence.GenerationType.IDENTITY;
 import static lombok.AccessLevel.PROTECTED;
 
 import code_review.project.common.BaseTimeEntity;
+import code_review.project.todolist.domain.dto.in.ChangeToDoListRequest;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -38,11 +39,12 @@ public class ToDoList extends BaseTimeEntity<ToDoList, Long> {
 
 	private LocalDateTime completedTime;
 
-	public void changeStatus(CompletionStatus status) {
-		this.isCompleted = status;
-	}
-
 	public void changeDescription(String description) {
 		this.description = description;
+	}
+
+	public void changeCompletion(ChangeToDoListRequest request) {
+		this.isCompleted = request.getStatus();
+		this.completedTime = request.getCompletedTime();
 	}
 }

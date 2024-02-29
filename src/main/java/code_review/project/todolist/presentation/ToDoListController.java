@@ -1,6 +1,9 @@
 package code_review.project.todolist.presentation;
 
 import code_review.project.todolist.application.ToDoListService;
+import code_review.project.todolist.domain.dto.in.ChangeToDoListRequest;
+import code_review.project.todolist.domain.dto.in.RegisterToDoListRequest;
+import code_review.project.todolist.domain.dto.out.ToDoListResponse;
 import code_review.project.todolist.domain.entity.CompletionStatus;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
@@ -34,8 +37,8 @@ public class ToDoListController {
 	}
 
 	@PatchMapping("/{todoId}/change")
-	public ResponseEntity<CompletionStatus> changeToDoList(@PathVariable("todoId") String todoId, CompletionStatus status) {
-		return ResponseEntity.ok(toDoListService.changeToDoList(todoId, status));
+	public ResponseEntity<CompletionStatus> changeToDoList(@PathVariable("todoId") String todoId, @RequestBody ChangeToDoListRequest request) {
+		return ResponseEntity.ok(toDoListService.changeToDoList(todoId, request));
 	}
 
 	@DeleteMapping("/{todoId}/change")

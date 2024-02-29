@@ -6,6 +6,7 @@ import static lombok.AccessLevel.PROTECTED;
 import code_review.project.common.BaseTimeEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EntityListeners;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
@@ -18,6 +19,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Getter
 @NoArgsConstructor(access = PROTECTED)
+@EntityListeners(AmountChangeListener.class)
 public class Account extends BaseTimeEntity<Account, Long> {
 
 	@Id

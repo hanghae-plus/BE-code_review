@@ -2,9 +2,7 @@ package code_review.project.todolist.repository;
 
 import static code_review.project.todolist.domain.entity.QToDoList.toDoList;
 
-import code_review.project.todolist.domain.entity.QToDoList;
-import code_review.project.todolist.presentation.ToDoListResponse;
-import com.querydsl.codegen.utils.model.Constructor;
+import code_review.project.todolist.domain.dto.out.ToDoListResponse;
 import com.querydsl.core.types.Projections;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import java.util.List;
@@ -27,8 +25,8 @@ public class ToDoListCustomRepositoryImpl implements ToDoListCustomRepository {
 				toDoList.completedTime))
 			.from(toDoList)
 			.orderBy(
-				toDoList.isCompleted.asc().nullsLast(), // "완료"가 먼저 나타나도록 오름차순 정렬, null 값은 마지막에 나타나도록 설정
-				toDoList.completedTime.asc())
+				toDoList.isCompleted.desc(),
+				toDoList.createdAt.asc())
 			.fetch();
 	}
 

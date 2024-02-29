@@ -1,7 +1,9 @@
 package code_review.project.todolist.application;
 
+import static code_review.project.todolist.domain.entity.CompletionStatus.UNCOMPLETED;
 import static org.assertj.core.api.Assertions.assertThat;
 
+import code_review.project.todolist.domain.entity.CompletionStatus;
 import code_review.project.todolist.domain.entity.ToDoList;
 import code_review.project.todolist.repository.ToDoListRepository;
 import jakarta.persistence.EntityManager;
@@ -28,7 +30,7 @@ class ToDoListServiceTest {
 	void BeforeEachRegisterToDoList() {
 		ToDoList entity = ToDoList.builder()
 			.description("자바 공부하기")
-			.isCompleted(false)
+			.isCompleted(UNCOMPLETED)
 			.build();
 		toDoListRepository.save(entity);
 	}
@@ -42,7 +44,7 @@ class ToDoListServiceTest {
 	void registerToDoList() {
 		ToDoList entity = ToDoList.builder()
 			.description("자바 공부하기")
-			.isCompleted(false)
+			.isCompleted(UNCOMPLETED)
 			.build();
 		toDoListRepository.save(entity);
 	}

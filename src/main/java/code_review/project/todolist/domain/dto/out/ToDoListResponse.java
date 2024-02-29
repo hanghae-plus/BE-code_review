@@ -1,4 +1,4 @@
-package code_review.project.todolist.presentation;
+package code_review.project.todolist.domain.dto.out;
 
 import code_review.project.todolist.domain.entity.CompletionStatus;
 import code_review.project.todolist.domain.entity.ToDoList;

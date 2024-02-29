@@ -1,6 +1,7 @@
 package code_review.project.account.application;
 
 import code_review.project.account.domain.entity.Account;
+import code_review.project.account.domain.dto.in.AccountRequest;
 import code_review.project.account.repository.AccountRepository;
 import lombok.Builder;
 import lombok.Data;
@@ -17,8 +18,8 @@ public class AccountService {
 
 	private final AccountRepository accountRepository;
 
-	public String createAccount(String accountName) {
-		Account account = Account.create(accountName);
+	public String createAccount(AccountRequest request) {
+		Account account = Account.create(request.getAccountName());
 		accountRepository.save(account);
 		return account.getName();
 	}
