@@ -1,4 +1,4 @@
-package BE.code_review.common;
+package code_review.project.common;
 
 import org.springframework.data.domain.AbstractAggregateRoot;
 

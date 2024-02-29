@@ -1,4 +1,4 @@
-package BE.code_review.common;
+package code_review.project.common;
 
 import jakarta.persistence.EntityListeners;
 import jakarta.persistence.MappedSuperclass;

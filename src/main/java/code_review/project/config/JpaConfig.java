@@ -1,4 +1,4 @@
-package BE.code_review.config;
+package code_review.project.config;
 
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import jakarta.persistence.EntityManager;

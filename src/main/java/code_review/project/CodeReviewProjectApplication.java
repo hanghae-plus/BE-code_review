@@ -1,4 +1,4 @@
-package BE.code_review;
+package code_review.project;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfi
 
 @SpringBootApplication(exclude = SecurityAutoConfiguration.class)
 
-public class BeCodeReviewApplication {
+public class CodeReviewProjectApplication {
     public static void main(String[] args) {
-        SpringApplication.run(BeCodeReviewApplication.class, args);
+        SpringApplication.run(CodeReviewProjectApplication.class, args);
     }
 }
