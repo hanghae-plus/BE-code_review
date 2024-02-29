@@ -13,12 +13,14 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Entity
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor(access = PROTECTED)
 @Getter
+@ToString
 public class ToDoList extends BaseTimeEntity<ToDoList, Long> {
 
 	@Id
@@ -34,5 +36,9 @@ public class ToDoList extends BaseTimeEntity<ToDoList, Long> {
 
 	public void changeCompleted(Boolean completed) {
 		this.isCompleted = completed;
+	}
+
+	public void changeDescription(String description) {
+		this.description = description;
 	}
 }

@@ -19,7 +19,6 @@ public class ToDoListService {
 
 	private final ToDoListRepository toDoListRepository;
 
-
 	public List<ToDoListResponse> findToDoList() {
 		return toDoListRepository.findAll().stream().map(ToDoListResponse::of).collect(toList());
 	}
