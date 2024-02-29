@@ -1,10 +1,15 @@
 package code_review.project.todolist.application;
 
+import static code_review.project.todolist.domain.entity.CompletionStatus.UNCOMPLETED;
+import static java.util.Comparator.comparing;
 import static java.util.stream.Collectors.toList;
 
+import code_review.project.todolist.domain.entity.CompletionStatus;
 import code_review.project.todolist.domain.entity.ToDoList;
+import code_review.project.todolist.presentation.RegisterToDoListRequest;
 import code_review.project.todolist.presentation.ToDoListResponse;
 import code_review.project.todolist.repository.ToDoListRepository;
+import java.util.Comparator;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -20,22 +25,25 @@ public class ToDoListService {
 	private final ToDoListRepository toDoListRepository;
 
 	public List<ToDoListResponse> findToDoList() {
-		return toDoListRepository.findAll().stream().map(ToDoListResponse::of).collect(toList());
+		return toDoListRepository.findAll().stream().map(ToDoListResponse::of)
+			.sorted(comparing(ToDoListResponse::getIsCompleted)
+			.thenComparing(ToDoListResponse::getCompletedTime))
+			.collect(toList());
 	}
 
-	public String registerToDoList(String description) {
+	public String registerToDoList(RegisterToDoListRequest request) {
 		ToDoList entity = ToDoList.builder()
-			.description(description)
-			.isCompleted(false)
+			.description(request.getDescription())
+			.isCompleted(UNCOMPLETED)
 			.build();
 		toDoListRepository.save(entity);
 		return entity.getDescription();
 	}
 
-	public Boolean changeToDoList(String todoId, Boolean isCompleted) {
+	public CompletionStatus changeToDoList(String todoId, CompletionStatus status) {
 		ToDoList entity = toDoListRepository.findById(Long.valueOf(todoId))
 			.orElseThrow(() -> new IllegalArgumentException("할일 목록이 존재하지 않습니다."));
-		entity.changeCompleted(isCompleted);
+		entity.changeStatus(status);
 		return entity.getIsCompleted();
 	}
 

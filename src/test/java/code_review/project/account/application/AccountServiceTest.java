@@ -40,11 +40,11 @@ class AccountServiceTest {
 	    assertThat(accountName).isEqualTo("미래계좌");
 	}
 
-
 	@Test
 	void depositAccount() {
 	    // given
-		Integer amount = accountService.depositAccount(1L, 10000);
+		Account entity = accountRepository.findByName("미래계좌");
+		Integer amount = accountService.depositAccount(entity.getId(), 10000);
 	    assertThat(amount).isEqualTo(10000);
 	}
 

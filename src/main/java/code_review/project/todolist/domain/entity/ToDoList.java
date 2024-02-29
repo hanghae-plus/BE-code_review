@@ -1,11 +1,14 @@
 package code_review.project.todolist.domain.entity;
 
+import static jakarta.persistence.EnumType.STRING;
 import static jakarta.persistence.GenerationType.IDENTITY;
 import static lombok.AccessLevel.PROTECTED;
 
 import code_review.project.common.BaseTimeEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import java.time.LocalDateTime;
@@ -30,12 +33,13 @@ public class ToDoList extends BaseTimeEntity<ToDoList, Long> {
 
 	private String description;
 
-	private Boolean isCompleted;
+	@Enumerated(STRING)
+	private CompletionStatus isCompleted;
 
 	private LocalDateTime completedTime;
 
-	public void changeCompleted(Boolean completed) {
-		this.isCompleted = completed;
+	public void changeStatus(CompletionStatus status) {
+		this.isCompleted = status;
 	}
 
 	public void changeDescription(String description) {

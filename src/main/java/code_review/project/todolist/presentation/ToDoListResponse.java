@@ -1,6 +1,8 @@
 package code_review.project.todolist.presentation;
 
+import code_review.project.todolist.domain.entity.CompletionStatus;
 import code_review.project.todolist.domain.entity.ToDoList;
+import com.querydsl.core.annotations.QueryProjection;
 import java.time.LocalDateTime;
 import lombok.Builder;
 import lombok.Data;
@@ -8,8 +10,9 @@ import lombok.Data;
 @Data
 @Builder
 public class ToDoListResponse {
+	private Long toDoListId;
 	private String description;
-	private Boolean isCompleted;
+	private CompletionStatus isCompleted;
 	private LocalDateTime completedTime;
 
 	public static ToDoListResponse of(ToDoList entity) {
@@ -18,5 +21,14 @@ public class ToDoListResponse {
 			.isCompleted(entity.getIsCompleted())
 			.completedTime(entity.getCompletedTime())
 			.build();
+	}
+
+	@QueryProjection
+	public ToDoListResponse(Long toDoListId, String description, CompletionStatus isCompleted,
+		LocalDateTime completedTime) {
+		this.toDoListId = toDoListId;
+		this.description = description;
+		this.isCompleted = isCompleted;
+		this.completedTime = completedTime;
 	}
 }
